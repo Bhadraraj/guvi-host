@@ -1,121 +1,82 @@
-import React from "react";
-import {
-  X,
-  Search,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Phone,
-  MapPin,
-  Mail,
-  Send, // ✅ replaces PaperPlane
-  Globe,
-  Menu,
-  ArrowRight,
-  ChevronDown,
-  MessageCircle, // ✅ replaces Whatsapp
-} from "lucide-react";
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const navigation = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Pricing', path: '/pricing' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Team', path: '/team' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
-    <>
-      <>
-        
-        {/*==============================
-	Header Area
-==============================*/}
-        <header className="ot-header header-layout1">
-          <div className="sticky-wrapper">
-            {/* Main Menu Area */}
-            <div className="menu-area">
-              <div className="container">
-                <div className="row align-items-center justify-content-between">
-                  <div className="col-auto">
-                    <div className="header-logo">
-                      <a href="index.html">
-                        <img src="assets/img/logo.svg" alt="Secur" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="col-auto">
-                    <nav className="main-menu d-none d-lg-inline-block">
-                      <ul>
-                        <li>
-                          <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                          <a href="#">About</a>
-                        </li>
-                        <li>
-                          <a href="service.html">Services</a>
-                        </li>
-                        <li>
-                          <a href="project.html">Portfolio</a>
-                        </li>
-                        <li>
-                          <a href="pricing.html">Pricing</a>
-                        </li>
-                        <li>
-                          <a href="contact.html">Contact Us</a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                  <div className="col-auto">
-                    <div className="header-button">
-                      <div className="dropdown-link">
-                        <a
-                          className="dropdown-toggle icon-btn"
-                          href="#"
-                          role="button"
-                          id="dropdownMenuLink1"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i className="fal fa-globe" />
-                        </a>
-                        <ul
-                          className="dropdown-menu"
-                          aria-labelledby="dropdownMenuLink1"
-                        >
-                          <li>
-                            <a href="#">German</a>
-                            <a href="#">French</a>
-                            <a href="#">Italian</a>
-                            <a href="#">Latvian</a>
-                            <a href="#">Spanish</a>
-                            <a href="#">Greek</a>
-                          </li>
-                        </ul>
-                      </div>
-                      <button
-                        type="button"
-                        className="icon-btn searchBoxToggler d-none d-lg-block"
-                      >
-                        <i className="far fa-search" />
-                      </button>
-                      <button
-                        type="button"
-                        className="ot-menu-toggle d-block d-lg-none"
-                      >
-                        <i className="far fa-bars" />
-                      </button>
-                      <a
-                        href="contact.html"
-                        className="ot-btn style-border d-none d-xl-flex"
-                      >
-                        Get Consultation
-                        <i className="far fa-long-arrow-right ms-2" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-      </>
-    </>
+    <header className="bg-white shadow-md sticky top-0 z-50">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <span className="text-2xl font-bold text-blue-600">HostingPro</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`font-medium transition-colors ${
+                  isActive(item.path)
+                    ? 'text-blue-600'
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <nav className="md:hidden py-4 border-t">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                onClick={() => setIsOpen(false)}
+                className={`block py-2 font-medium transition-colors ${
+                  isActive(item.path)
+                    ? 'text-blue-600'
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+        )}
+      </div>
+    </header>
   );
 };
 
