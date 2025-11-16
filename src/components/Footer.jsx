@@ -1,254 +1,130 @@
 import React from "react";
-import {
-  Facebook,
-  Twitter,
-  Linkedin,
-  Youtube,
-  MapPin,
-  Phone,
-  Clock,
-  ArrowRight,
-  Copyright,
-  Square, // added for list icons
-} from "lucide-react";
+import { Link } from "react-router-dom";
+import { Facebook, Twitter, Linkedin, Youtube, MapPin, Phone, Clock, Square } from "lucide-react";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer-wrapper footer-layout1 ">
-        <div
-          className="footer-shape1"
-          data-bg-src="assets/img/shape/footer-bg-shape1-1.png"
-        />
-        <div className="footer-shape2 spin d-md-block d-none">
-          <img src="assets/img/shape/footer-bg-shape1-2.png" alt="img" />
-        </div>
-        <div className="footer-shape3 spin">
-          <img src="assets/img/shape/footer-bg-shape1-3.png" alt="img" />
-        </div>
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+      {/* Background Shapes */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-10 right-10 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+      </div>
 
-        
-
-        <div className="widget-area">
-          <div className="container">
-            <div className="row justify-content-between">
-              {/* About Section */}
-              <div className="col-md-6 col-xl-auto" data-cue="slideInUp">
-                <div className="widget footer-widget">
-                  <div className="ot-widget-about">
-                    <div className="about-logo">
-                      <a href="index.html">
-                        <img src="assets/img/logo.svg" alt="Secur" />
-                      </a>
-                    </div>
-                    <p className="about-text">
-                      Since 1999, Secur has been a trusted leader in
-                      cybersecurity, protecting digital assets with.
-                    </p>
-                    <div className="ot-social d-flex gap-3">
-                      <a href="https://www.facebook.com/">
-                        <Facebook size={18} />
-                      </a>
-                      <a href="https://www.twitter.com/">
-                        <Twitter size={18} />
-                      </a>
-                      <a href="https://www.linkedin.com/">
-                        <Linkedin size={18} />
-                      </a>
-                      <a href="https://www.youtube.com/">
-                        <Youtube size={18} />
-                      </a>
-                    </div>
-                  </div>
-                </div>
+      <div className="relative">
+        {/* Main Footer Content */}
+        <div className="container mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* About Section */}
+            <div className="space-y-4">
+              <Link to="/" className="inline-block">
+                <img src="/assets/img/logo.svg" alt="Logo" className="h-10 brightness-0 invert" />
+              </Link>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Your trusted partner in web development, digital marketing, and app development since 2010.
+              </p>
+              <div className="flex space-x-3">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <Facebook size={18} />
+                </a>
+                <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <Twitter size={18} />
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <Linkedin size={18} />
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <Youtube size={18} />
+                </a>
               </div>
-
-              {/* IT Solutions */}
-              <div className="col-md-6 col-xl-auto" data-cue="slideInUp">
-                <div className="widget widget_nav_menu footer-widget">
-                  <h3 className="widget_title">IT Solution</h3>
-                  <div className="menu-all-pages-container">
-                    <ul className="menu">
-                      <li>
-                        <a
-                          href="contact.html"
-                          className="d-flex align-items-center gap-2"
-                        >
-                          <Square size={10} /> Malware Protection
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="contact.html"
-                          className="d-flex align-items-center gap-2"
-                        >
-                          <Square size={10} /> Computer Security
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="contact.html"
-                          className="d-flex align-items-center gap-2"
-                        >
-                          <Square size={10} /> Server Protection
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="contact.html"
-                          className="d-flex align-items-center gap-2"
-                        >
-                          <Square size={10} /> Cyber Security
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="contact.html"
-                          className="d-flex align-items-center gap-2"
-                        >
-                          <Square size={10} /> Security Monitoring
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Quick Links */}
-              <div className="col-md-6 col-xl-auto" data-cue="slideInUp">
-                <div className="widget widget_nav_menu footer-widget">
-                  <h3 className="widget_title">Quick Link</h3>
-                  <div className="menu-all-pages-container">
-                    <ul className="menu">
-                      <li>
-                        <a
-                          href="about.html"
-                          className="d-flex align-items-center gap-2"
-                        >
-                          <Square size={10} /> About Secur
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="service.html"
-                          className="d-flex align-items-center gap-2"
-                        >
-                          <Square size={10} /> Our Services
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="pricing.html"
-                          className="d-flex align-items-center gap-2"
-                        >
-                          <Square size={10} /> Pricing Plan
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="project.html"
-                          className="d-flex align-items-center gap-2"
-                        >
-                          <Square size={10} /> Our Projects
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="team.html"
-                          className="d-flex align-items-center gap-2"
-                        >
-                          <Square size={10} /> Our Team
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact Section */}
-              <div className="col-md-6 col-xl-auto" data-cue="slideInUp">
-                <div className="widget footer-widget">
-                  <h3 className="widget_title">Contact Us</h3>
-                  <div className="ot-widget-contact">
-                    <div className="info-box d-flex align-items-start">
-                      <div className="box-icon me-3">
-                        <MapPin size={20} />
-                      </div>
-                      <div className="media-body">
-                        <h3 className="box-title">Location</h3>
-                        <p className="box-text">
-                          932 Dogwood Road, Chapel Hill, North Carolina
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="info-box d-flex align-items-start mt-3">
-                      <div className="box-icon me-3">
-                        <Phone size={20} />
-                      </div>
-                      <div className="media-body">
-                        <h3 className="box-title">Phone</h3>
-                        <a
-                          className="box-link d-block"
-                          href="tel:16555778749"
-                        >
-                          +165-5577-8749
-                        </a>
-                        <a
-                          className="box-link d-block"
-                          href="tel:16535647488"
-                        >
-                          +165-3564-7488
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="info-box d-flex align-items-start mt-3">
-                      <div className="box-icon me-3">
-                        <Clock size={20} />
-                      </div>
-                      <div className="media-body">
-                        <h3 className="box-title">Opening Hour</h3>
-                        <p className="box-text">
-                          Mon - Sat: 10.00 AM - 4.00 PM
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* End Contact Section */}
             </div>
-          </div>
-        </div>
 
-        {/* Footer Bottom */}
-        <div className="copyright-wrap">
-          <div className="container text-center">
-            <div className="row gy-3 justify-content-between align-items-center">
-              <div className="col-md-auto" data-cue="slideInLeft">
-                <p className="copyright-text d-flex align-items-center justify-content-center gap-1">
-                  <Copyright size={16} /> Copyright 2025{" "}
-                  <a href="index.html">Secur</a>. All Rights Reserved.
-                </p>
-              </div>
-              <div className="col-md-auto">
-                <div className="footer-links" data-cue="slideInRight">
-                  <ul>
-                    <li>
-                      <a href="about.html">Terms &amp; Condition</a>
-                    </li>
-                    <li>
-                      <a href="about.html">Privacy Policy</a>
-                    </li>
-                  </ul>
+            {/* Our Services */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Our Services</h3>
+              <ul className="space-y-2">
+                {[
+                  { title: "Web Development", path: "/web-development" },
+                  { title: "Digital Marketing", path: "/digital-marketing" },
+                  { title: "App Development", path: "/app-development" },
+                  { title: "Hosting Solutions", path: "/hosting/cloud-cpanel" },
+                  { title: "Domain & Email", path: "/domain" },
+                ].map((item, index) => (
+                  <li key={index}>
+                    <Link to={item.path} className="flex items-center space-x-2 text-gray-400 hover:text-primary transition-colors duration-300 group">
+                      <Square size={8} className="group-hover:scale-125 transition-transform" />
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                {[
+                  { title: "Home", path: "/" },
+                  { title: "Pricing", path: "/pricing" },
+                  { title: "24/7 Support", path: "/ticket" },
+                  { title: "Contact", path: "/contact" },
+                  { title: "Login", path: "/login" },
+                ].map((item, index) => (
+                  <li key={index}>
+                    <Link to={item.path} className="flex items-center space-x-2 text-gray-400 hover:text-primary transition-colors duration-300 group">
+                      <Square size={8} className="group-hover:scale-125 transition-transform" />
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <MapPin size={20} className="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-medium mb-1">Location</h4>
+                    <p className="text-gray-400 text-sm">123 Business St, Tech City</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <Phone size={20} className="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-medium mb-1">Phone</h4>
+                    <a href="tel:1234567890" className="block text-gray-400 text-sm hover:text-primary">+1 (234) 567-890</a>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <Clock size={20} className="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-medium mb-1">Hours</h4>
+                    <p className="text-gray-400 text-sm">24/7 Available</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+
+        {/* Bottom */}
+        <div className="border-t border-gray-800">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+              <p className="text-gray-400 text-sm">© 2025 <Link to="/" className="text-primary hover:underline">YourCompany</Link>. All Rights Reserved.</p>
+              <div className="flex space-x-6">
+                <Link to="/terms" className="text-gray-400 hover:text-primary text-sm">Terms</Link>
+                <Link to="/privacy" className="text-gray-400 hover:text-primary text-sm">Privacy</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 
