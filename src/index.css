@@ -1,25 +1,2 @@
-@import "tailwindcss";
+ @import './assets/css/style.css';
 
-@layer base {
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: system-ui, -apple-system, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    color: #374151;
-    background-color: white;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-@theme {
-  --color-primary: #1890ff;
-  --color-primary-dark: #0d6efd;
-  --color-primary-light: #40a9ff;
-  --color-secondary: #6c757d;
-}

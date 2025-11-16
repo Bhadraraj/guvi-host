@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, Server, Shield, Zap, Database, Globe, Clock } from "lucide-react";
+import { Check, Server, Shield, Zap, Database, Globe, Clock } from "lucide-react";
+import Breadcrumb from "../../components/Breadcrumb";
 import PricingCard from "../../components/Cards/PricingCard";
+import AnimatedSection from "../../components/AnimatedSection";
 
 const CloudCpanelHosting = () => {
   const pricingPlans = [
@@ -48,164 +50,128 @@ const CloudCpanelHosting = () => {
         "Unlimited Email Accounts",
         "Free SSL Certificate",
         "cPanel Control Panel",
-        "Dedicated Support",
+        "Premium Support",
         "99.99% Uptime",
-        "Daily Backups",
+        "Daily + On-Demand Backups",
         "Free Domain (1st year)",
-        "Free CDN",
-        "Advanced Security",
+        "Free CDN Integration",
+        "Dedicated IP Address",
       ],
       link: "/contact",
     },
   ];
 
   const features = [
-    { icon: <Server size={32} />, title: "Cloud Infrastructure", text: "Built on reliable cloud infrastructure for maximum uptime" },
-    { icon: <Shield size={32} />, title: "Free SSL Certificate", text: "Secure your website with free SSL for all domains" },
-    { icon: <Zap size={32} />, title: "Lightning Fast", text: "SSD storage and optimized servers for speed" },
-    { icon: <Database size={32} />, title: "Daily Backups", text: "Automatic daily backups to keep your data safe" },
-    { icon: <Globe size={32} />, title: "Global CDN", text: "Content delivery network for faster global access" },
-    { icon: <Clock size={32} />, title: "99.99% Uptime", text: "Industry-leading uptime guarantee" },
+    {
+      icon: <Server size={32} />,
+      title: "Cloud Infrastructure",
+      description: "Built on enterprise-grade cloud servers with automatic scaling and load balancing.",
+    },
+    {
+      icon: <Shield size={32} />,
+      title: "Advanced Security",
+      description: "SSL certificates, firewall protection, malware scanning, and DDoS mitigation.",
+    },
+    {
+      icon: <Zap size={32} />,
+      title: "Lightning Performance",
+      description: "SSD storage, LiteSpeed servers, and integrated CDN for maximum speed.",
+    },
+    {
+      icon: <Database size={32} />,
+      title: "Daily Backups",
+      description: "Automatic daily backups with easy one-click restore functionality.",
+    },
+    {
+      icon: <Globe size={32} />,
+      title: "cPanel Control",
+      description: "Industry-standard cPanel for easy website and email management.",
+    },
+    {
+      icon: <Clock size={32} />,
+      title: "24/7 Support",
+      description: "Expert technical support available around the clock via chat, email, and phone.",
+    },
   ];
 
   return (
-    <>
-      <div className="breadcumb-wrapper" style={{ backgroundImage: "url(/assets/img/bg/breadcrumb-bg.png)" }}>
-        <div className="container">
-          <div className="breadcumb-content">
-            <h1 className="breadcumb-title">Cloud & cPanel Hosting</h1>
-            <ul className="breadcumb-menu">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/pricing">Hosting</Link></li>
-              <li>Cloud & cPanel Hosting</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div>
+      <Breadcrumb title="Cloud & cPanel Hosting" />
 
-      <section className="space">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <div className="title-area text-center">
-                <span className="sub-title">Powerful Cloud Hosting</span>
-                <h2 className="sec-title">Fast, Secure & Reliable Cloud Hosting with cPanel</h2>
-                <p className="sec-text">
-                  Experience the power of cloud hosting with the ease of cPanel. Our cloud infrastructure
-                  ensures your website loads fast and stays online 24/7 with industry-leading uptime.
-                </p>
-              </div>
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <AnimatedSection animation="fadeIn">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">
+                Cloud Hosting
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
+                Fast & Reliable Cloud Hosting with cPanel
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Experience the power of cloud infrastructure combined with the simplicity of cPanel. Perfect for
+                websites of all sizes with 99.99% uptime guarantee.
+              </p>
             </div>
-          </div>
+          </AnimatedSection>
 
-          <div className="row gy-4 mt-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="col-md-6 col-lg-4" data-cue="slideInUp" data-delay={index * 100}>
-                <div className="feature-card text-center p-4">
-                  <div className="box-icon mb-3 text-primary d-flex justify-content-center">
+              <AnimatedSection key={index} animation="slideInUp" delay={index * 0.1}>
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-blue-500 text-center h-full">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white">
                     {feature.icon}
                   </div>
-                  <h3 className="box-title h5">{feature.title}</h3>
-                  <p className="box-text">{feature.text}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                 </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="space-top space-bottom bg-smoke">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <div className="title-area text-center">
-                <span className="sub-title">Pricing Plans</span>
-                <h2 className="sec-title">Choose Your Perfect Hosting Plan</h2>
-                <p className="sec-text">
-                  Select a plan that fits your needs. All plans include cPanel, free SSL, and 24/7 support.
-                </p>
-              </div>
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <AnimatedSection animation="fadeIn">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">
+                Pricing Plans
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
+                Choose Your Perfect Plan
+              </h2>
+              <p className="text-gray-600 text-lg">
+                All plans include free SSL, daily backups, and 24/7 support. No hidden fees.
+              </p>
             </div>
-          </div>
+          </AnimatedSection>
 
-          <div className="row gy-4 mt-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {pricingPlans.map((plan, index) => (
-              <PricingCard
-                key={index}
-                title={plan.title}
-                price={plan.price}
-                period="month"
-                features={plan.features}
-                link={plan.link}
-                isPopular={plan.isPopular}
-                delay={index * 100}
-              />
+              <PricingCard key={index} {...plan} delay={index * 0.1} />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="space">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <div className="img-box1">
-                <img src="/assets/img/service/service2-1.jpg" alt="cPanel Hosting" />
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="title-area mb-4">
-                <span className="sub-title">Why Choose Us</span>
-                <h2 className="sec-title">Everything You Need for a Successful Website</h2>
-                <p className="sec-text mb-4">
-                  Our cloud hosting platform is designed to give you maximum performance,
-                  security, and ease of use. With cPanel control panel, managing your
-                  website has never been easier.
-                </p>
-              </div>
-
-              <div className="checklist mb-4">
-                <ul>
-                  <li><Check size={20} className="text-primary me-2" />One-Click WordPress Installation</li>
-                  <li><Check size={20} className="text-primary me-2" />Free Website Migration</li>
-                  <li><Check size={20} className="text-primary me-2" />30-Day Money-Back Guarantee</li>
-                  <li><Check size={20} className="text-primary me-2" />Free Website Builder</li>
-                  <li><Check size={20} className="text-primary me-2" />Unlimited MySQL Databases</li>
-                  <li><Check size={20} className="text-primary me-2" />Advanced Security Features</li>
-                </ul>
-              </div>
-
-              <Link to="/contact" className="ot-btn">
-                Get Started Today
-                <ArrowRight size={16} className="ms-2" />
-              </Link>
-            </div>
-          </div>
+      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <AnimatedSection animation="fadeIn">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Launch your website today with our powerful cloud hosting platform. 30-day money-back guarantee.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+            >
+              Get Started Now
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
-
-      <section className="cta-area-1 space" style={{ backgroundImage: "url(/assets/img/bg/cta_bg_2.png)" }}>
-        <div className="container">
-          <div className="row align-items-center justify-content-between">
-            <div className="col-lg-8">
-              <div className="title-area mb-lg-0">
-                <span className="sub-title text-white">Start Your Website Today</span>
-                <h2 className="sec-title text-white">Ready to Launch Your Website?</h2>
-                <p className="sec-text text-white">
-                  Get started with our cloud hosting in minutes. No technical knowledge required!
-                </p>
-              </div>
-            </div>
-            <div className="col-lg-auto">
-              <Link to="/contact" className="ot-btn style2">
-                Get Started Now
-                <ArrowRight size={16} className="ms-2" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+    </div>
   );
 };
 
